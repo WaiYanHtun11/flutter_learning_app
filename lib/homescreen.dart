@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning_app/preview_screen.dart';
+import 'package:flutter_learning_app/widgets/button_demo.dart';
 import 'package:flutter_learning_app/widgets/icon_demo.dart';
 import 'package:flutter_learning_app/widgets/text_demo.dart';
+import 'package:flutter_learning_app/widgets/textfield_demo.dart';
 import 'package:flutter_learning_app/widgets/typography_demo.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -36,7 +38,9 @@ class HomeScreen extends StatelessWidget {
     final List<Widget> widgets = [
       buildSubTitle('Icon',const IconDemo(),'widgets/icon_demo.dart'),
       buildSubTitle('Text', const TextDemo(),'widgets/text_demo.dart'),
-      buildSubTitle('Typography', const TypographyDemo(),'widgets/typography_demo.dart')
+      buildSubTitle('Typography', const TypographyDemo(),'widgets/typography_demo.dart'),
+      buildSubTitle('Buttons', const ButtonDemo(), 'widgets/button_demo.dart'),
+      buildSubTitle('TextField',const TextFieldDemo(), 'widgets/textfield_demo.dart')
     ];
 
     return Scaffold(

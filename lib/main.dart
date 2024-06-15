@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         useMaterial3: true
       ),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
