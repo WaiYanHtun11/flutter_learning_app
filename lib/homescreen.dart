@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning_app/preview_screen.dart';
+import 'package:flutter_learning_app/widgets/icon_demo.dart';
+import 'package:flutter_learning_app/widgets/text_demo.dart';
+import 'package:flutter_learning_app/widgets/typography_demo.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   
   @override
   Widget build(BuildContext context) {
-    void gotoNextScreen(String title,Widget screen){
-      Navigator.of(context).push(
-          MaterialPageRoute(
-              builder: (context) => PreviewScreen(title: title, demo: screen)
-          )
-      );
-    }
-    
     Widget buildTitle(String title,List<Widget> subtitle){
       return Card(
         elevation: 20,
@@ -24,18 +19,24 @@ class HomeScreen extends StatelessWidget {
         ),
       );
     }
-    Widget buildSubTitle(String subtitle,Widget screen){
+    Widget buildSubTitle(String subtitle,Widget demo,String path){
       return ListTile(
         title: Text(subtitle),
-        onTap: ()=> gotoNextScreen(subtitle,screen),
+        onTap: (){
+          Navigator.of(context).push(
+              MaterialPageRoute(
+                  builder: (context) => PreviewScreen(title: subtitle, demo: demo, path: path)
+              )
+          );
+        },
         trailing: const Icon(Icons.chevron_right),
       );
     }
     
     final List<Widget> widgets = [
-      buildSubTitle('Icon',const Placeholder()),
-      buildSubTitle('Text', const Placeholder()),
-      buildSubTitle('Typography', const Placeholder())
+      buildSubTitle('Icon',const IconDemo(),'widgets/icon_demo.dart'),
+      buildSubTitle('Text', const TextDemo(),'widgets/text_demo.dart'),
+      buildSubTitle('Typography', const TypographyDemo(),'widgets/typography_demo.dart')
     ];
 
     return Scaffold(
